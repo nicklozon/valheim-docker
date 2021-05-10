@@ -1,0 +1,10 @@
+version: '3.1'
+
+services:
+    dritz_server:
+        build: .
+        image: valheim
+        ports: 
+            - 2456-2458:2456-2458/udp
+        volumes: 
+            - ./worlds:/valheim/worlds
