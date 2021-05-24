@@ -1,10 +1,13 @@
-version: '3.1'
+version: "3.1"
 
 services:
-    dritz_server:
-        build: .
-        image: valheim
-        ports: 
-            - 2456-2458:2456-2458/udp
-        volumes: 
-            - ./worlds:/valheim/worlds
+  valheim_server:
+    build: .
+    image: valheim
+    environment:
+      - WORLD_NAME=${WORLD_NAME}
+      - WORLD_PASSWORD=${WORLD_PASSWORD}
+    ports:
+      - ${PORT_RANGE}:2456-2458/udp
+    volumes:
+      - ./worlds/${COMPOSE_PROJECT_NAME}:/valheim/worlds
