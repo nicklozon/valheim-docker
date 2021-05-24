@@ -6,3 +6,6 @@
 
 ## UPDATED
 `docker-compose up`
+
+### Multiple Servers
+`docker-compose --env-file .env.solo up`
