@@ -11,4 +11,4 @@ services:
     ports:
       - ${PORT_RANGE}:2456-2458/udp
     volumes:
-      - ./worlds/${COMPOSE_PROJECT_NAME}:/valheim/worlds
+      - ./worlds/${COMPOSE_PROJECT_NAME}:/valheim/worlds_local
