@@ -2,6 +2,13 @@ FROM ubuntu:kinetic
 
 RUN useradd -m steam
 
+RUN if [[ `uname -m | grep aarch` ]]; then \
+      wget https://itai-nelken.github.io/weekly-box86-debs/debian/box86.list -O /etc/apt/sources.list.d/box86.list && \
+      wget -qO- https://itai-nelken.github.io/weekly-box86-debs/debian/KEY.gpg | sudo apt-key add - && \
+      apt update && \
+      apt install box86 -y; \
+    fi
+
 RUN dpkg --add-architecture i386 && \
     apt update
 
