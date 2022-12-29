@@ -4,6 +4,7 @@ services:
   valheim_server:
     build: .
     image: valheim
+    restart: unless-stopped
     environment:
       - WORLD_NAME=${COMPOSE_PROJECT_NAME}
       - WORLD_PASSWORD=${WORLD_PASSWORD}
